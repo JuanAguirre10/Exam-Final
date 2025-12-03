@@ -6,17 +6,22 @@ const Home = () => {
   const { items, setItems } = useStore();
 
   useEffect(() => {
-    const fetchData = async () => {
-      const response = await fetch('https://restcountries.com/v3.1/all');
+  const fetchData = async () => {
+    try {
+      const response = await fetch('https://restcountries.com/v3.1/region/europe');
       const data = await response.json();
       if (Array.isArray(data)) {
         setItems(data.slice(0, 6));
       }
-    };
-    if (items.length === 0) {
-      fetchData();
+    } catch (error) {
+      console.error('Error:', error);
+      setItems([]);
     }
-  }, []);
+  };
+  if (items.length === 0) {
+    fetchData();
+  }
+}, []);
 
   return (
     <div className="container py-5">
