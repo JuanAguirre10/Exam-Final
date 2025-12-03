@@ -9,7 +9,9 @@ const Home = () => {
     const fetchData = async () => {
       const response = await fetch('https://restcountries.com/v3.1/all');
       const data = await response.json();
-      setItems(data.slice(0, 6));
+      if (Array.isArray(data)) {
+        setItems(data.slice(0, 6));
+      }
     };
     if (items.length === 0) {
       fetchData();

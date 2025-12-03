@@ -10,17 +10,25 @@ const Entities = () => {
 
   useEffect(() => {
     const fetchData = async () => {
-      const response = await fetch('https://restcountries.com/v3.1/all');
-      const data = await response.json();
-      setAllCountries(data);
+      try {
+        const response = await fetch('https://restcountries.com/v3.1/all');
+        const data = await response.json();
+        if (Array.isArray(data)) {
+          setAllCountries(data);
+        }
+      } catch (error) {
+        console.error('Error fetching countries:', error);
+      }
     };
     fetchData();
   }, []);
 
   useEffect(() => {
-    const startIndex = (page - 1) * itemsPerPage;
-    const endIndex = startIndex + itemsPerPage;
-    setItems(allCountries.slice(startIndex, endIndex));
+    if (allCountries.length > 0) {
+      const startIndex = (page - 1) * itemsPerPage;
+      const endIndex = startIndex + itemsPerPage;
+      setItems(allCountries.slice(startIndex, endIndex));
+    }
   }, [page, allCountries, setItems]);
 
   const totalPages = Math.ceil(allCountries.length / itemsPerPage);

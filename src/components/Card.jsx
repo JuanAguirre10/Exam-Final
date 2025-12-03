@@ -3,14 +3,22 @@ const Card = ({ item }) => {
     <div className="col">
       <div className="card h-100">
         <img 
-          src={item.image || item.thumbnail || 'https://via.placeholder.com/300'} 
+          src={item.flags?.png || 'https://via.placeholder.com/300'} 
           className="card-img-top" 
-          alt={item.name || item.title}
+          alt={item.name?.common || 'Country flag'}
           style={{height: '200px', objectFit: 'cover'}}
         />
         <div className="card-body">
-          <h5 className="card-title">{item.name || item.title}</h5>
-          <p className="card-text">{item.altSpellings || item.capital || 'No description'}</p>
+          <h5 className="card-title">{item.name?.common || 'Unknown'}</h5>
+          <p className="card-text mb-1">
+            <strong>🏛️ Capital:</strong> {item.capital?.[0] || 'N/A'}
+          </p>
+          <p className="card-text mb-1">
+            <strong>🌎 Region:</strong> {item.region || 'N/A'}
+          </p>
+          <p className="card-text mb-0">
+            <strong>👥 Population:</strong> {item.population?.toLocaleString() || 'N/A'}
+          </p>
         </div>
       </div>
     </div>

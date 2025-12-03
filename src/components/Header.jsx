@@ -7,7 +7,7 @@ const Header = () => {
         <Link className="navbar-brand" to="/">MyApp</Link>
         <div className="navbar-nav">
           <Link className="nav-link" to="/">Home</Link>
-          <Link className="nav-link" to="/entities">Entities</Link>
+          <Link className="nav-link" to="/entities">Paises</Link>
           <Link className="nav-link" to="/contact">Contact</Link>
         </div>
       </div>
