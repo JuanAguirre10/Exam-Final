@@ -10,7 +10,7 @@ const Card = ({ item }) => {
         />
         <div className="card-body">
           <h5 className="card-title">{item.name || item.title}</h5>
-          <p className="card-text">{item.description || item.status || 'No description'}</p>
+          <p className="card-text">{item.altSpellings || item.capital || 'No description'}</p>
         </div>
       </div>
     </div>

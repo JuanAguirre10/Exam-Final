@@ -7,9 +7,9 @@ const Home = () => {
 
   useEffect(() => {
     const fetchData = async () => {
-      const response = await fetch('https://rickandmortyapi.com/api/character');
+      const response = await fetch('https://restcountries.com/v3.1/all');
       const data = await response.json();
-      setItems(data.results.slice(0, 6));
+      setItems(data.slice(0, 6));
     };
     if (items.length === 0) {
       fetchData();
@@ -19,8 +19,8 @@ const Home = () => {
   return (
     <div className="container py-5">
       <div className="text-center mb-5">
-        <h1 className="display-4">Welcome to MyApp</h1>
-        <p className="lead">Consuming API with React + Zustand</p>
+        <h1 className="display-4">World Countries</h1>
+        <p className="lead">Examen usando la API</p>
       </div>
       <CardList items={items} />
     </div>

@@ -8,7 +8,7 @@ const Entities = () => {
 
   useEffect(() => {
     const fetchData = async () => {
-      const response = await fetch(`https://rickandmortyapi.com/api/character?page=${page}`);
+      const response = await fetch(`https://restcountries.com/v3.1/name/{name}`);
       const data = await response.json();
       setItems(data.results);
     };
