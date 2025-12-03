@@ -1,3 +1,7 @@
+Desplegado en VERCEL
+https://countries-explorer-nmiy6anf2-juans-projects-4f9c141b.vercel.app/
+
+
 # 🌍 Countries Explorer App
 
 Aplicación web moderna desarrollada con React + Vite que consume la API de Rest Countries para mostrar información detallada de países europeos con sistema de paginación y gestión de estado global.
